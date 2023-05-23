@@ -1,0 +1,18 @@
+# Check ntp servers' IP address before replacing
+- name: Check existing NTP for compliance
+  cisco.ios.ios_ntp_global:
+    config: "{{ ntp }}"
+    state: replaced
+  check_mode: "{{ check }}"
+  register: diff
+  tags: ntp
+  vars:
+   check: yes
+ 
+- name: Show the difference in json format
+  when: diff.changed
+  ansible.utils.fact_diff:
+    before: "{{ diff.before }}"
+    after: "{{ diff.after }}"
+  ignore_errors: yes
+  tags: ntp

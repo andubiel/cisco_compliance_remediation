@@ -1,0 +1,12 @@
+---
+- name: Compliance Check for NTP server settings
+  hosts: ios
+  gather_facts: false
+
+  tasks:
+    - name: load compliance role
+      include_role:
+        name: ../roles/compliance
+      tags: 
+      - ntp
+    
