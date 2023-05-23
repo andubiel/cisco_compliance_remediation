@@ -7,6 +7,5 @@
     - name: load compliance role
       include_role:
         name: ../roles/compliance
-      tags: 
-      - ntp
+      tags: "{{ tags }}"
     
