@@ -1,4 +1,6 @@
 
 *artifact*
 ansible-navigator.log
-ansible-navigator.cfg
+ansible-navigator.yml
+ansible-navigator.yml.old
+
