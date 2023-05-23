@@ -1,8 +1,21 @@
 ---
 # vars file for compliance
-ntp: 
+ntp_ios:
   servers:
   - server: 192.0.2.0
     version: 2
   - server: 192.0.2.1
     version: 2
+
+ntp_nxos:
+ servers:
+  - server: 192.0.2.0
+    vrf: default
+  - server: 192.0.2.1
+    vrf: 
+    
+ntp_iosxr:
+ servers:
+  - server: 192.0.2.0
+  - server: 192.0.2.1
+    

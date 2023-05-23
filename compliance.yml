@@ -1,6 +1,6 @@
 ---
 - name: Compliance Check for NTP server settings
-  hosts: ios
+  hosts: routers
   gather_facts: false
 
   tasks:
