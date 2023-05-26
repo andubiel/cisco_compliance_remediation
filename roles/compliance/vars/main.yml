@@ -12,10 +12,60 @@ ntp_nxos:
   - server: 192.0.2.0
     vrf: default
   - server: 192.0.2.1
-    vrf: 
+    vrf: default
     
 ntp_iosxr:
  servers:
   - server: 192.0.2.0
   - server: 192.0.2.1
+    
+snmp_ios:
+ groups:
+ - group: V3GROUP
+   version: v3
+   version_option: auth
+   read: V3READ  
+   write: V3WRITE 
+ hosts:   
+ - community_string: V3USER
+   host: "1.1.1.1"
+   version: 3
+   version_option: auth
+ views:
+ - name: V3READ 
+   family_name: iso
+   included: true
+ - name: V3WRITE 
+   family_name: iso
+   included: true
+ users:
+ - group: V3GROUP
+   username: V3USER
+   version: v3
+   authentication:
+    password: snmpauthpass
+    algorithm: sha
+   encryption:
+    password: snmpprevpass
+    priv: aes
+    priv_option: 256
+
+snmp_nxos:
+ hosts:   
+ - host: "1.1.1.1"
+   community: V3USER
+   version: 3
+   auth: NMS 
+ users:
+  auth:
+  - user: V3USER
+    group: V3GROUP
+    authentication:
+      password: snmpauthpass
+      algorithm: sha
+      localized_key: True
+      priv: 
+        privacy_password: snmpprevpass
+        aes_128: True 
+        
     

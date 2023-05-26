@@ -15,5 +15,21 @@
     - "{{ diff.commands | default ('no diff found') }}"
   tags: ntp
        
+- name: Check/Apply SNMPv3 Authentication/Encryption Configuration
+  cisco.nxos.nxos_snmp_server:
+      config: "{{ snmp_nxos }}"
+      state: replaced
+  check_mode: "{{ check }}"
+  register: snmp_diff
+  tags: snmp
+
+- ansible.builtin.debug:
+    msg:
+    - "current snmp config"
+    - "{{ snmp_diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ snmp_diff.commands | default ('no diff found') }}"
+  tags: snmp
+
 
   
