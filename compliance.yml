@@ -1,6 +1,7 @@
 ---
 - name: Compliance Check for NTP server settings
-  hosts: "{{ groups }}"
+  hosts: 
+    "{{ groups }}"
   gather_facts: false
 
   tasks:
