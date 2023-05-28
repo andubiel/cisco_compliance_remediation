@@ -71,16 +71,16 @@ snmp_nxos:
 snmp_iosxr:
   groups:
   - group: V3GROUP
-    version: v3
+    version: 3
   hosts:
   - host:
     - host 1.1.1.1 
-    version: v3
+    version: 3
     community: V3USER
     read: V3READ  
     write: V3WRITE 
   users:
   - group: V3GROUP
     user: V3USER
-    version: v3
+    version: 3
 
