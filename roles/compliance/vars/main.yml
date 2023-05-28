@@ -83,5 +83,8 @@ snmp_iosxr:
   - group: V3GROUP
     user: V3USER
     version: v3
+
+  iosxr_snmp_auth: snmpauthpass 
+  iosxr_snmp_priv: snmpprevpass
    
 
