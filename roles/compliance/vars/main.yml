@@ -80,7 +80,9 @@ logging_iosxr:
   hosts:
   - host: 1.1.1.2
   - host: 1.1.1.3
-  
+  monitor:
+    severity: warnings
+    state: enabled
  
 # NXOS Compliance
 ntp_nxos:
