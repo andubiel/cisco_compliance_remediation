@@ -41,7 +41,7 @@ logging_ios:
   - hostname: 1.1.1.2
   - hostname: 1.1.1.3
   monitor:
-  severity: warnings
+    severity: warnings
   snmp_trap:
   - errors
   trap: errors
