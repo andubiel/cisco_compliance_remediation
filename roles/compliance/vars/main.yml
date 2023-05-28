@@ -81,7 +81,7 @@ logging_iosxr:
   - host: 1.1.1.2
   - host: 1.1.1.3
   monitor:
-    severity: warnings
+    severity: warning
     state: enabled
  
 # NXOS Compliance
