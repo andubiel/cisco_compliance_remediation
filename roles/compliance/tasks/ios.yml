@@ -36,7 +36,7 @@
     config: "{{ logging_ios }}"   
     state: replaced
   check_mode: "{{ check }}"
-  register: snmp_diff
+  register: logging_diff
   tags: logging
 
 - ansible.builtin.debug:
