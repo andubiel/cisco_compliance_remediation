@@ -36,7 +36,7 @@ logging_ios:
     size: 12000
   console:
     severity: critical
-    facility: local5
+  facility: local5
   hosts:
   - hostname: 1.1.1.2
   - hostname: 1.1.1.3
@@ -47,7 +47,6 @@ logging_ios:
   trap: errors
   userinfo: True
   logging_on: enable
-  state: merged
 
 # IOS-XR Compliance    
 ntp_iosxr:

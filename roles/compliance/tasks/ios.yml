@@ -34,7 +34,7 @@
 - name: Check/Apply IOSXE logging configuration
   cisco.ios.ios_logging_global:
     config: "{{ logging_ios }}"   
-    state: merged
+  state: merged
   register: snmp_diff
   tags: logging
 
