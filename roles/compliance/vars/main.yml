@@ -70,10 +70,10 @@ snmp_nxos:
         
 snmp_iosxr:
   groups:
-    group: V3GROUP
+  - group: V3GROUP
     version: v3
   hosts:
-    host:
+  - host:
     - host 1.1.1.1 
     version: v3
     community: V3USER
