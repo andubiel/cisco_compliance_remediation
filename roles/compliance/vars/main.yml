@@ -31,13 +31,6 @@ snmp_ios:
    host: "1.1.1.1"
    version: 3
    version_option: auth
- views:
- - name: V3READ 
-   family_name: iso
-   included: true
- - name: V3WRITE 
-   family_name: iso
-   included: true
  users:
  - group: V3GROUP
    username: V3USER
