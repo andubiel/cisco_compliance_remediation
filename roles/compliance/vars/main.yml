@@ -87,9 +87,7 @@ logging_iosxr:
   trap: errors
   userinfo: True
   logging_on: enable
-
-
-# NXOS-XE Compliance
+# NXOS Compliance
 ntp_nxos:
  servers:
   - server: 192.0.2.0
