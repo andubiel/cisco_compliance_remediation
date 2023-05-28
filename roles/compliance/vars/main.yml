@@ -70,23 +70,12 @@ snmp_iosxr:
     version: v3
 iosxr_snmp_auth: snmpauthpass 
 iosxr_snmp_priv: snmpprevpass
+
 logging_iosxr:
   buffered:
     severity: notifications
     size: 12000
-  console:
-    severity: critical
-  facility: local5
-  hosts:
-  - hostname: 1.1.1.2
-  - hostname: 1.1.1.3
-  monitor:
-    severity: warnings
-  snmp_trap:
-  - errors
-  trap: errors
-  userinfo: True
-  logging_on: enable
+ 
 # NXOS Compliance
 ntp_nxos:
  servers:
