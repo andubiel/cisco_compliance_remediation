@@ -37,3 +37,19 @@
     - "{{ snmp_diff.commands | default ('no diff found') }}"
   tags: snmp 
   ignore_errors: yes
+
+- name: Check/Apply IOSXR logging configuration
+  cisco.iosxr.iosxr_logging_global:
+    config: "{{ logging_iosxr }}"   
+    state: replaced
+  check_mode: "{{ check }}"
+  register: logging_diff
+  tags: logging
+
+- ansible.builtin.debug:
+    msg:
+    - "current logging config"
+    - "{{ logging_diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ logging_diff.commands | default ('no diff found') }}"
+  tags: logging
