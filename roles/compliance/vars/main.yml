@@ -77,10 +77,10 @@ snmp_iosxr:
     - host 1.1.1.1 
     version: 3
     community: V3USER
-    read: V3READ  
-    write: V3WRITE 
   users:
   - group: V3GROUP
     user: V3USER
     version: v3
+    read: V3READ  
+    write: V3WRITE 
 
