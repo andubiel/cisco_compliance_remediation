@@ -25,7 +25,7 @@
 
 - name: Apply snmp auth/encryption passwords
   cisco.iosxr.iosxr_config:
-    config: "snmp-server user V3USER V3GROUP v3 auth sha {{ iosxr_snmp_auth }} priv aes 256 {{ iosxr_snmp_priv }}"
+    lines: "snmp-server user V3USER V3GROUP v3 auth sha {{ iosxr_snmp_auth }} priv aes 256 {{ iosxr_snmp_priv }}"
   tags: snmp
   check_mode: "{{ check }}"
 
