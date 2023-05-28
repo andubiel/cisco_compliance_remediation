@@ -22,6 +22,7 @@
   check_mode: "{{ check }}"
   register: snmp_diff
   tags: snmp
+  ignore_errors: yes
 
 - ansible.builtin.debug:
     msg:
@@ -30,3 +31,4 @@
     - "replace commands (remediation)"
     - "{{ snmp_diff.commands | default ('no diff found') }}"
   tags: snmp 
+  ignore_errors: yes
