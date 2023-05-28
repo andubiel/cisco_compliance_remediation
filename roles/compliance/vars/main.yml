@@ -1,66 +1,59 @@
 ---
 # vars file for compliance
+# IOS-XE Compliance
 ntp_ios:
   servers:
   - server: 192.0.2.0
     version: 2
   - server: 192.0.2.1
     version: 2
-
-ntp_nxos:
- servers:
-  - server: 192.0.2.0
-    vrf: default
-  - server: 192.0.2.1
-    vrf: default
-    
-ntp_iosxr:
- servers:
-  - server: 192.0.2.0
-  - server: 192.0.2.1
-    
 snmp_ios:
- groups:
- - group: V3GROUP
-   version: v3
-   version_option: auth
-   read: V3READ  
-   write: V3WRITE 
- hosts:   
- - community_string: V3USER
-   host: "1.1.1.1"
-   version: 3
-   version_option: auth
- users:
- - group: V3GROUP
-   username: V3USER
-   version: v3
-   authentication:
-    password: snmpauthpass
-    algorithm: sha
-   encryption:
-    password: snmpprevpass
-    priv: aes
-    priv_option: 256
-
-snmp_nxos:
- hosts:   
- - host: "1.1.1.1"
-   community: V3USER
-   version: 3
-   auth: NMS 
- users:
-  auth:
-  - user: V3USER
-    group: V3GROUP
+  groups:
+  - group: V3GROUP
+    version: v3
+    version_option: auth
+    read: V3READ  
+    write: V3WRITE 
+  hosts:   
+  - community_string: V3USER
+    host: "1.1.1.1"
+    version: 3
+    version_option: auth
+  users:
+  - group: V3GROUP
+    username: V3USER
+    version: v3
     authentication:
       password: snmpauthpass
       algorithm: sha
-      localized_key: True
-      priv: 
-        privacy_password: snmpprevpass
-        aes_128: True 
-        
+    encryption:
+      password: snmpprevpass
+      priv: aes
+      priv_option: 256
+logging_ios:
+  buffered:
+    severity: notifications
+    size: 12000
+  console:
+    severity: critical
+    facility: local5
+  hosts:
+  - hostname: 1.1.1.2
+  - hostname: 1.1.1.3
+  monitor:
+  severity: warnings
+  snmp_trap:
+  - errors
+  trap: errors
+  userinfo: True
+  logging_on: enable
+  state: merged
+
+# IOS-XR Compliance    
+ntp_iosxr:
+  servers:
+  - server: 192.0.2.0
+  - server: 192.0.2.1           
 snmp_iosxr:
   groups:
   - group: V3GROUP
@@ -76,8 +69,32 @@ snmp_iosxr:
   - group: V3GROUP
     user: V3USER
     version: v3
-
 iosxr_snmp_auth: snmpauthpass 
 iosxr_snmp_priv: snmpprevpass
-  
+
+
+# NXOS-XE Compliance
+ntp_nxos:
+ servers:
+  - server: 192.0.2.0
+    vrf: default
+  - server: 192.0.2.1
+    vrf: default
+ snmp_nxos:
+ hosts:   
+ - host: "1.1.1.1"
+   community: V3USER
+   version: 3
+   auth: NMS 
+ users:
+  auth:
+  - user: V3USER
+    group: V3GROUP
+    authentication:
+      password: snmpauthpass
+      algorithm: sha
+      localized_key: True
+      priv: 
+        privacy_password: snmpprevpass
+        aes_128: True  
 
