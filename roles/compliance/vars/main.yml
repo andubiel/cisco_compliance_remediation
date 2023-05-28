@@ -75,6 +75,12 @@ logging_iosxr:
   buffered:
     severity: notifications
     size: 12000
+  console:
+    severity: critical
+  facility: local5
+  hosts:
+  - hostname: 1.1.1.2
+  - hostname: 1.1.1.3
  
 # NXOS Compliance
 ntp_nxos:
