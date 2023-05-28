@@ -71,7 +71,7 @@ snmp_nxos:
 snmp_iosxr:
   groups:
   - group: V3GROUP
-    version: 3
+    version: v3
   hosts:
   - host:
     - host 1.1.1.1 
@@ -82,5 +82,5 @@ snmp_iosxr:
   users:
   - group: V3GROUP
     user: V3USER
-    version: 3
+    version: v3
 
