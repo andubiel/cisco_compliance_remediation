@@ -84,7 +84,7 @@ snmp_iosxr:
     user: V3USER
     version: v3
 
-  iosxr_snmp_auth: snmpauthpass 
-  iosxr_snmp_priv: snmpprevpass
-   
+iosxr_snmp_auth: snmpauthpass 
+iosxr_snmp_priv: snmpprevpass
+  
 
