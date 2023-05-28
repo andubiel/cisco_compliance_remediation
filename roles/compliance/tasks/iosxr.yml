@@ -17,8 +17,8 @@
        
 - name: Check/Apply SNMPv3 Authentication/Encryption Configuration
   cisco.iosxr.iosxr_snmp_server:
-      config: "{{ snmp_ios }}"
-      state: replaced
+      #config: "{{ snmp_ios }}"
+      state: gathered
   check_mode: "{{ check }}"
   register: snmp_diff
   tags: snmp
