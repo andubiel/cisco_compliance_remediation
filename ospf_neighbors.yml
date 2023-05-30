@@ -1,15 +1,21 @@
 ---
-- name: Show IP OSPF Neighbor
-  ansible.utils.cli_parse:
-    command: show ip ospf neighbor
-    parser:
-      name: ansible.netcommon.pyats
-  register: ospf
-  when: inventory_hostname in groups['nxos']
+- name: Operation Check OSPF Neighbors
+  hosts: "{{ hosts }}"
+  gather_facts: false
 
-- name: display value of command
-  debug:
-    var: ospf ['parsed']
-  when: inventory_hostname in groups['nxos']
-  
+  tasks:
+
+  - name: Show IP OSPF Neighbor
+    ansible.utils.cli_parse:
+      command: show ip ospf neighbor
+      parser:
+        name: ansible.netcommon.pyats
+    register: ospf
+    when: inventory_hostname in groups['nxos']
+
+  - name: display value of command
+    debug:
+      var: ospf ['parsed']
+    when: inventory_hostname in groups['nxos']
+    
 
