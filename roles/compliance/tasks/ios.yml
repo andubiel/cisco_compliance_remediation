@@ -47,4 +47,50 @@
     - "{{ logging_diff.commands | default ('no diff found') }}"
   tags: logging
 
+- name: Check/Apply IOSXE ACLs 
+  cisco.ios.ios_acls:
+    config: "{{ acls }}"   
+    state: replaced
+  check_mode: "{{ check }}"
+  register: acls_diff
+  tags: acl
+
+- ansible.builtin.debug:
+    msg:
+    - "current acl config"
+    - "{{ acls_diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ acls_diff.commands | default ('no diff found') }}"
+  tags: acl
+
+- name: Check/Apply IOSXE ACLs Iterfaces
+  cisco.ios.ios_acl_interfaces:
+    config: "{{ acl_interfaces }}" 
+    state: replaced
+  check_mode: "{{ check }}"
+  register: acls_int_diff
+  tags: acl
+
+- ansible.builtin.debug:
+    msg:
+    - "current acl config"
+    - "{{ acls_int_diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ acls_int_diff.commands | default ('no diff found') }}"
+  tags: acl
+
+- name: Check Router Software Version
+  cisco.ios.ios_command:
+    commands: sh ver
+  register: ver
+  tags: sh_ver
+
+- name: Assert IOS Version
+  ansible.builtin.assert:
+    that: 
+      - "'{{ new_image }}' in ver['stdout'][0]"
+    fail_msg: "The ios version must be upgrade to '{{ new_image }}'"
+    success_msg: "The ios version is '{{ new_image }}"
+  tags: sh_ver
+
 

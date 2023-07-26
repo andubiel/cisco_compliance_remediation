@@ -1,12 +1,14 @@
 ---
 # vars file for compliance
 # IOS-XE Compliance
+#NTP
 ntp_ios:
   servers:
   - server: 192.0.2.0
     version: 2
   - server: 192.0.2.1
     version: 2
+#SNMP    
 snmp_ios:
   groups:
   - group: V3GROUP
@@ -30,6 +32,7 @@ snmp_ios:
       password: snmpprevpass
       priv: aes
       priv_option: 256
+#Logging
 logging_ios:
   buffered:
     severity: notifications
@@ -47,7 +50,37 @@ logging_ios:
   trap: errors
   userinfo: True
   logging_on: enable
-
+#ACLs
+acls:
+-   acls:
+    -   aces:
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ospf
+            sequence: 10
+            source:
+                any: true
+        -   destination:
+                any: true
+            grant: permit
+            protocol: icmp
+            sequence: 20
+            source:
+                any: true
+        acl_type: extended
+        name: control
+    afi: ipv4
+#ACL Interfaces
+acl_interfaces:
+-   access_groups:
+    -   acls:
+        -   direction: in
+            name: control
+        afi: ipv4
+    name: Tunnel0
+#IOS Version    
+version_ios: 'Version 17.03.05'
 # IOS-XR Compliance    
 ntp_iosxr:
   servers:
