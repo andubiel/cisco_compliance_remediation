@@ -1,6 +1,6 @@
 ---
 - name: Compliance Check for NTP server settings
-  hosts: "{{ group }}"
+  hosts: cisco_only
   gather_facts: false
 
   tasks:
