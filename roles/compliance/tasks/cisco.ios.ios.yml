@@ -88,7 +88,7 @@
 - name: Assert IOS Version
   ansible.builtin.assert:
     that: 
-      - "'{{ version_ios }}' in ver['stdout'][0]"
+      - "'{{ version_ios }}' in ver['stdout']"
     fail_msg: "The ios version must be upgrade to '{{ version_ios }}'"
     success_msg: "The ios version is '{{ version_ios }}"
   tags: sh_ver
