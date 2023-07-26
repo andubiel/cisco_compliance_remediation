@@ -3,6 +3,6 @@
 - name: load supported platform file or fail
   include: "{{ item }}"
   with_first_found:
-  - "cisco.{{ ansible_network_os }}.{{ ansible_network_os }}.yml"
+  - "{{ ansible_network_os }}.yml"
   - "unsupported_platform.yml"
 
