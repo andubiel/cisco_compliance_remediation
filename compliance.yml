@@ -11,6 +11,5 @@
       - ntp
       - snmp
       - logging
-      - sh_ver 
       - acl
     

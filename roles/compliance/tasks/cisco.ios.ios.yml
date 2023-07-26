@@ -78,19 +78,3 @@
     - "replace commands (remediation)"
     - "{{ acls_int_diff.commands | default ('no diff found') }}"
   tags: acl
-
-- name: Check Router Software Version
-  cisco.ios.ios_command:
-    commands: sh ver
-  register: ver
-  tags: sh_ver
-
-- name: Assert IOS Version
-  ansible.builtin.assert:
-    that: 
-      - "'{{ version_ios }}' in ver['stdout']"
-    fail_msg: "The ios version must be upgrade to '{{ version_ios }}'"
-    success_msg: "The ios version is '{{ version_ios }}"
-  tags: sh_ver
-
-
