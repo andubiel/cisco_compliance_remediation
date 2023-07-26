@@ -19,7 +19,7 @@
   cisco.ios.ios_snmp_server:
       config: "{{ snmp_ios }}"
       state: replaced
-  check_mode: "{{ check }}"
+  #check_mode: "{{ check }}"
   register: snmp_diff
   tags: snmp
 
@@ -35,7 +35,7 @@
   cisco.ios.ios_logging_global:
     config: "{{ logging_ios }}"   
     state: replaced
-  check_mode: "{{ check }}"
+  #check_mode: "{{ check }}"
   register: logging_diff
   tags: logging
 
@@ -51,7 +51,7 @@
   cisco.ios.ios_acls:
     config: "{{ acls }}"   
     state: replaced
-  check_mode: "{{ check }}"
+  #check_mode: "{{ check }}"
   register: acls_diff
   tags: acl
 
@@ -67,7 +67,7 @@
   cisco.ios.ios_acl_interfaces:
     config: "{{ acl_interfaces }}" 
     state: replaced
-  check_mode: "{{ check }}"
+  #check_mode: "{{ check }}"
   register: acls_int_diff
   tags: acl
 
