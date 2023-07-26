@@ -3,7 +3,7 @@
   cisco.ios.ios_ntp_global:
     config: "{{ ntp_ios }}"
     state: replaced
-  check_mode: "{{ check }}"
+  #check_mode: "{{ check }}"
   register: ntp_diff
   tags: ntp
 
