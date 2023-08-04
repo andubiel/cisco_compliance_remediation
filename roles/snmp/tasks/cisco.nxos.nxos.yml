@@ -12,6 +12,5 @@
     - "{{ snmp_diff.before }}"
     - "replace commands (remediation)"
     - "{{ snmp_diff.commands | default ('no diff found') }}"
-    check_mode: "{{ check }}"
 
 
