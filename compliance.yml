@@ -15,7 +15,8 @@
         name: ../roles/snmp
       when: tag == 'snmp'
       vars:
-        tag: snmp
+        tag: 
+        - snmp
 
     - name: load logging compliance role
       include_role:
