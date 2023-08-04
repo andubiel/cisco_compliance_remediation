@@ -129,7 +129,6 @@ snmp_nxos:
  - host: "1.1.1.1"
    community: V3USER
    version: 3
-   auth: NMS 
    traps: true
  users:
   auth:
