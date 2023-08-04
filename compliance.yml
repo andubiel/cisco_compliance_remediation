@@ -8,17 +8,21 @@
       include_role:
         name: ../roles/ntp
       tags: ntp
+      when: tags == 'ntp'
     - name: load snmp compliance role
       include_role:
         name: ../roles/snmp
       tags: snmp
+      when: tags == 'snmp'
     - name: load logging compliance role
       include_role:
         name: ../roles/logging
       tags: logging
+      when: tags == 'logging'
     - name: load acl compliance role
       include_role:
         name: ../roles/acl
       tags: acl
+      when: tags == 'acl'
 
     
