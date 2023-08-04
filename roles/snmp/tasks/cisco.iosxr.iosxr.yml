@@ -4,12 +4,10 @@
       config: "{{ snmp_iosxr }}"
       state: replaced
   register: snmp_diff
-  tags: snmp
 
 - name: Apply snmp auth/encryption passwords
   cisco.iosxr.iosxr_config:
     lines: "snmp-server user V3USER V3GROUP v3 auth sha {{ iosxr_snmp_auth }} priv aes 256 {{ iosxr_snmp_priv }}"
-  tags: snmp
 
 - ansible.builtin.debug:
     msg:
@@ -17,5 +15,4 @@
     - "{{ snmp_diff.before }}"
     - "replace commands (remediation)"
     - "{{ snmp_diff.commands | default ('no diff found') }}"
-  tags: snmp 
   ignore_errors: yes
