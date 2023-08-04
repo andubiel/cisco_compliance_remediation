@@ -139,7 +139,7 @@ snmp_nxos:
       algorithm: sha
       localized_key: True
       priv: 
-        privacy_password: snmpprevpass
+        privacy_password: Snmpprevpass1!
         aes_128: True  
 logging_nxos:
   console:
