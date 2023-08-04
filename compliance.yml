@@ -13,7 +13,7 @@
     - name: load snmp compliance role
       include_role:
         name: roles/snmp
-     
+      tags: snmp
 
     - name: load logging compliance role
       include_role:
