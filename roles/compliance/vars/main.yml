@@ -130,6 +130,7 @@ snmp_nxos:
    community: V3USER
    version: 3
    auth: NMS 
+   traps: true
  users:
   auth:
   - user: V3USER
