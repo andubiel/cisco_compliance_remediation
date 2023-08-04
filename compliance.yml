@@ -7,22 +7,18 @@
     - name: load ntp compliance role
       include_role:
         name: ../roles/ntp
-      tags: 
-      - ntp
+      tags: ntp
     - name: load snmp compliance role
       include_role:
         name: ../roles/snmp
-      tags: 
-      - snmp
+      tags: snmp
     - name: load logging compliance role
       include_role:
         name: ../roles/logging
-      tags: 
-      - logging
+      tags: logging
     - name: load acl compliance role
       include_role:
         name: ../roles/acl
-      tags: 
-      - acl
+      tags: acl
 
     
