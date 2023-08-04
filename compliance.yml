@@ -7,25 +7,22 @@
   tasks:
     - name: load ntp compliance role
       include_role:
-        name: ../roles/ntp
+        name: roles/ntp
       when: tag == 'ntp'
 
     - name: load snmp compliance role
       include_role:
-        name: ../roles/snmp
+        name: roles/snmp
       when: tag == 'snmp'
-      vars:
-        tag: 
-        - snmp
 
     - name: load logging compliance role
       include_role:
-        name: ../roles/logging
+        name: roles/logging
       when: tag == 'logging'
 
     - name: load acl compliance role
       include_role:
-        name: ../roles/acl
+        name: roles/acl
       when: tag == 'acl'
 
     
