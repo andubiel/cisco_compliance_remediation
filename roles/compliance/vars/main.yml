@@ -125,12 +125,9 @@ ntp_nxos:
   - server: 192.0.2.1
     vrf: default
 snmp_nxos:
- communities:
- - community: private
-   group: V3GROUP
  hosts:   
  - host: "1.1.1.1"
-   community: private
+   community: V3USER
    version: 3
    auth: NMS 
  users:
