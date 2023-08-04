@@ -128,7 +128,7 @@ snmp_nxos:
  users:
   auth:
   - user: V3USER
-    group: V3GROUP
+    group: network-admin
     authentication:
       password: Snmpauthpass1!
       algorithm: sha
