@@ -17,7 +17,7 @@
 - name: Check/Apply SNMPv3 Authentication/Encryption Configuration
   cisco.nxos.nxos_snmp_server:
       config: "{{ snmp_nxos }}"
-      state: replaced
+      state: merged
   register: snmp_diff
   tags: snmp
 
