@@ -125,11 +125,11 @@ ntp_nxos:
   - server: 192.0.2.1
     vrf: default
 snmp_nxos:
- hosts:   
- - host: "1.1.1.1"
-   community: V3USER
-   version: 3
-   auth: NMS 
+ #hosts:   
+ #- host: "1.1.1.1"
+ #  community: V3USER
+ #  version: 3
+ #  auth: NMS 
  users:
   auth:
   - user: V3USER
