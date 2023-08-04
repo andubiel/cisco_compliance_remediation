@@ -1,0 +1,66 @@
+---
+# vars file for compliance
+# IOS-XE Compliance
+#SNMP    
+snmp_ios:
+  groups:
+  - group: V3GROUP
+    version: v3
+    version_option: auth
+    read: V3READ  
+    write: V3WRITE 
+  hosts:   
+  - community_string: V3USER
+    host: "1.1.1.1"
+    version: 3
+    version_option: auth
+  users:
+  - group: V3GROUP
+    username: V3USER
+    version: v3
+    authentication:
+      password: snmpauthpass
+      algorithm: sha
+    encryption:
+      password: snmpprevpass
+      priv: aes
+      priv_option: 256
+
+# IOS-XR Compliance              
+snmp_iosxr:
+  groups:
+  - group: V3GROUP
+    version: v3
+    read: V3READ  
+    write: V3WRITE 
+  hosts:
+  - host: 1.1.1.1 
+    version: 3
+    community: V3USER
+  users:
+  - group: V3GROUP
+    user: V3USER
+    version: v3
+iosxr_snmp_auth: snmpauthpass 
+iosxr_snmp_priv: snmpprevpass
+
+# NXOS Compliance
+snmp_nxos:
+ users:
+  auth:
+  - user: V3USER
+    group: network-admin
+    authentication:
+      password: Snmpauthpass1!
+      algorithm: sha
+      priv: 
+        privacy_password: Snmpprevpass1!
+        aes_128: True  
+ hosts:
+ - auth: V3USER
+   host: 1.1.1.1
+   traps: true
+   version: '3'
+
+
+

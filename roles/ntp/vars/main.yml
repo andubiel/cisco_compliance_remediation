@@ -1,0 +1,24 @@
+---
+# vars file for compliance
+# IOS-XE Compliance
+#NTP
+ntp_ios:
+  servers:
+  - server: 192.0.2.0
+    version: 2
+  - server: 192.0.2.1
+    version: 2
+
+# IOS-XR Compliance    
+ntp_iosxr:
+  servers:
+  - server: 192.0.2.0
+  - server: 192.0.2.1           
+
+# NXOS Compliance
+ntp_nxos:
+ servers:
+  - server: 192.0.2.0
+    vrf: default
+  - server: 192.0.2.1
+    vrf: default

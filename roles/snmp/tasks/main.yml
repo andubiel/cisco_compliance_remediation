@@ -1,0 +1,8 @@
+---
+# tasks file for compliance
+- name: load supported platform file or fail
+  include: "{{ item }}"
+  with_first_found:
+  - "{{ ansible_network_os }}.yml"
+  - "unsupported_platform.yml"
+

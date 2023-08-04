@@ -1,0 +1,17 @@
+---
+- name: Check/Apply NXOS logging configuration
+  cisco.nxos.nxos_logging_global:
+    config: "{{ logging_nxos }}"   
+    state: replaced
+  register: logging_diff
+  tags: logging
+
+- ansible.builtin.debug:
+    msg:
+    - "current logging config"
+    - "{{ logging_diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ logging_diff.commands | default ('no diff found') }}"
+  tags: logging
+
+  

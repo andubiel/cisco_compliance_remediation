@@ -1,0 +1,16 @@
+# Check ntp servers' IP address before replacing
+- name: Check/Replace existing NTP for compliance
+  cisco.iosxr.iosxr_ntp_global:
+    config: "{{ ntp_iosxr }}"
+    state: replaced
+  register: diff
+  tags: ntp
+
+- ansible.builtin.debug:
+    msg:
+    - "current ntp config"
+    - "{{ diff.before }}"
+    - "replace commands (remediation)"
+    - "{{ diff.commands | default ('no diff found') }}"
+  tags: ntp
+       

@@ -1,0 +1,37 @@
+---
+# vars file for compliance
+# IOS-XE Compliance
+#ACLs
+acls:
+-   acls:
+    -   aces:
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ospf
+            sequence: 10
+            source:
+                any: true
+        -   destination:
+                any: true
+            grant: permit
+            protocol: icmp
+            sequence: 20
+            source:
+                any: true
+        acl_type: extended
+        name: control
+    afi: ipv4
+#ACL Interfaces
+acl_interfaces:
+-   access_groups:
+    -   acls:
+        -   direction: in
+            name: control
+        afi: ipv4
+    name: Tunnel0
+#IOS Version    
+version_ios: 'Version 17.03.05'
+# IOS-XR Compliance    
+
+# NXOS Compliance

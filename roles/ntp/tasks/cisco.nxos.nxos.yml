@@ -1,0 +1,16 @@
+# Check ntp servers' IP address before replacing
+- name: Check/Replace existing NTP config for compliance
+  cisco.nxos.nxos_ntp_global:
+    config: "{{ ntp_nxos }}"
+    state: replaced
+  register: diff
+  tags: ntp
+
+- ansible.builtin.debug:
+    msg:
+    - "current ntp config"
+    - "{{ diff.before.servers }}"
+    - "replace commands (remediation)"
+    - "{{ diff.commands | default ('no diff found') }}"
+  tags: ntp
+       

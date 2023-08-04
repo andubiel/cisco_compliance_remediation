@@ -1,15 +1,28 @@
 ---
-- name: Compliance Check for NTP server settings
+- name: Compliance Check for Router settings
   hosts: "{{ group }}"
   gather_facts: false
 
   tasks:
-    - name: load compliance role
+    - name: load ntp compliance role
       include_role:
-        name: ../roles/compliance
+        name: ../roles/ntp
       tags: 
       - ntp
+    - name: load snmp compliance role
+      include_role:
+        name: ../roles/snmp
+      tags: 
       - snmp
+    - name: load logging compliance role
+      include_role:
+        name: ../roles/logging
+      tags: 
       - logging
+    - name: load acl compliance role
+      include_role:
+        name: ../roles/acl
+      tags: 
       - acl
+
     
