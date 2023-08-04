@@ -3,7 +3,6 @@
   cisco.nxos.nxos_ntp_global:
     config: "{{ ntp_nxos }}"
     state: replaced
-  check_mode: "{{ check }}"
   register: diff
   tags: ntp
 
@@ -19,7 +18,6 @@
   cisco.nxos.nxos_snmp_server:
       config: "{{ snmp_nxos }}"
       state: replaced
-  check_mode: "{{ check }}"
   register: snmp_diff
   tags: snmp
 
@@ -35,7 +33,6 @@
   cisco.nxos.nxos_logging_global:
     config: "{{ logging_nxos }}"   
     state: replaced
-  check_mode: "{{ check }}"
   register: logging_diff
   tags: logging
 
