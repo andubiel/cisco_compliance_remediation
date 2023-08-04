@@ -7,16 +7,8 @@
 
     - name: Setup initial firewall settings
       ansible.builtin.include_role: 
-        name: "{{ item }}"
-      loop:
-      - 'roles/ntp'
-      - 'roles/snmp'
-      - 'roles/logging'
-      - 'roles/acl'
-      tags: 
-      - ntp
-      - snmp
-      - logging
-      - acl
+        name: "roles/{{ item }}"
+      loop: "{{ tag }}"
+      
 
     

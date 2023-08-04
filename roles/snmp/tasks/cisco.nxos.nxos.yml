@@ -5,7 +5,6 @@
       state: replaced
   register: snmp_diff
   check_mode: "{{ check }}"
-  tags: snmp
 
 - ansible.builtin.debug:
     msg:
@@ -13,6 +12,6 @@
     - "{{ snmp_diff.before }}"
     - "replace commands (remediation)"
     - "{{ snmp_diff.commands | default ('no diff found') }}"
-  tags: snmp
+
 
 
