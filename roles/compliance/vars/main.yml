@@ -125,11 +125,6 @@ ntp_nxos:
   - server: 192.0.2.1
     vrf: default
 snmp_nxos:
- hosts:   
- - host: "1.1.1.1"
-   community: V3USER
-   version: 3
-   traps: true
  users:
   auth:
   - user: V3USER
@@ -141,6 +136,12 @@ snmp_nxos:
       priv: 
         privacy_password: Snmpprevpass1!
         aes_128: True  
+  hosts:
+  -   auth: V3USER
+      host: 1.1.1.1
+      traps: true
+      version: '3'
+
 logging_nxos:
   console:
     severity: critical
