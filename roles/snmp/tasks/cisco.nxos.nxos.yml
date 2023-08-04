@@ -4,7 +4,6 @@
       config: "{{ snmp_nxos }}"
       state: replaced
   register: snmp_diff
-  check_mode: "{{ check }}"
 
 - ansible.builtin.debug:
     msg:

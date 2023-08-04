@@ -5,7 +5,7 @@
   
   tasks:
 
-    - name: Setup initial firewall settings
+    - name: Run Compliance Roles
       ansible.builtin.include_role: 
         name: "roles/{{ role_item }}"
       loop: "{{ tag }}"
