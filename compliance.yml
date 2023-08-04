@@ -2,6 +2,8 @@
 - name: Compliance Check for Router settings
   hosts: "{{ group }}"
   gather_facts: false
+  vars:
+    tag: snmp
 
   tasks:
     - name: load ntp compliance role
