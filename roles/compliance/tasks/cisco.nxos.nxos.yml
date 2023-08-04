@@ -1,5 +1,5 @@
 # Check ntp servers' IP address before replacing
-- name: Check/Replace existing NTP for compliance
+- name: Check/Replace existing config for compliance
   cisco.nxos.nxos_ntp_global:
     config: "{{ ntp_nxos }}"
     state: replaced
