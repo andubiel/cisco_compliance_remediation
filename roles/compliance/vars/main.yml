@@ -136,11 +136,11 @@ snmp_nxos:
       priv: 
         privacy_password: Snmpprevpass1!
         aes_128: True  
-  hosts:
-  -   auth: V3USER
-      host: 1.1.1.1
-      traps: true
-      version: '3'
+ hosts:
+ - auth: V3USER
+   host: 1.1.1.1
+   traps: true
+   version: '3'
 
 logging_nxos:
   console:
