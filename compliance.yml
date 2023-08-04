@@ -2,9 +2,7 @@
 - name: Compliance Check for Router settings
   hosts: "{{ group }}"
   gather_facts: false
-  vars:
-    tag: 
-    - snmp
+  
 
   tasks:
     - name: load ntp compliance role
@@ -16,6 +14,8 @@
       include_role:
         name: ../roles/snmp
       when: tag == 'snmp'
+      vars:
+        snmp
 
     - name: load logging compliance role
       include_role:
