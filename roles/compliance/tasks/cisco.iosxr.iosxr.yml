@@ -3,7 +3,6 @@
   cisco.iosxr.iosxr_ntp_global:
     config: "{{ ntp_iosxr }}"
     state: replaced
-  check_mode: "{{ check }}"
   register: diff
   tags: ntp
 
@@ -19,7 +18,6 @@
   cisco.iosxr.iosxr_snmp_server:
       config: "{{ snmp_iosxr }}"
       state: replaced
-  check_mode: "{{ check }}"
   register: snmp_diff
   tags: snmp
 
@@ -27,7 +25,6 @@
   cisco.iosxr.iosxr_config:
     lines: "snmp-server user V3USER V3GROUP v3 auth sha {{ iosxr_snmp_auth }} priv aes 256 {{ iosxr_snmp_priv }}"
   tags: snmp
-  check_mode: "{{ check }}"
 
 - ansible.builtin.debug:
     msg:
@@ -42,7 +39,6 @@
   cisco.iosxr.iosxr_logging_global:
     config: "{{ logging_iosxr }}"   
     state: replaced
-  check_mode: "{{ check }}"
   register: logging_diff
   tags: logging
 
