@@ -12,7 +12,7 @@
     - name: load snmp compliance role
       include_role:
         name: ../roles/snmp
-      when: snmp in tag
+      when: tag is present
 
     - name: load logging compliance role
       include_role:
