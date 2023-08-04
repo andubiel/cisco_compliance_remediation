@@ -132,7 +132,6 @@ snmp_nxos:
     authentication:
       password: Snmpauthpass1!
       algorithm: sha
-      localized_key: True
       priv: 
         privacy_password: Snmpprevpass1!
         aes_128: True  
