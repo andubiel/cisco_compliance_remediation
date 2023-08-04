@@ -7,8 +7,10 @@
 
     - name: Setup initial firewall settings
       ansible.builtin.include_role: 
-        name: "roles/{{ item }}"
+        name: "roles/{{ role_item }}"
       loop: "{{ tag }}"
+      loop_control:
+        loop_var: role_item
       
 
     
