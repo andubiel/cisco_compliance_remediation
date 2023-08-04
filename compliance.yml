@@ -3,26 +3,20 @@
   hosts: "{{ group }}"
   gather_facts: false
   
-
   tasks:
-    - name: load ntp compliance role
-      include_role:
-        name: roles/ntp
-      when: tag == 'ntp'
 
-    - name: load snmp compliance role
-      include_role:
-        name: roles/snmp
-      tags: snmp
-
-    - name: load logging compliance role
-      include_role:
-        name: roles/logging
-      when: tag == 'logging'
-
-    - name: load acl compliance role
-      include_role:
-        name: roles/acl
-      when: tag == 'acl'
+    - name: Setup initial firewall settings
+      ansible.builtin.include_role: 
+        name: "{{ item }}"
+      loop:
+      - 'roles/ntp'
+      - 'roles/snmp'
+      - 'roles/logging'
+      - 'roles/acl'
+      tags: 
+      - ntp
+      - snmp
+      - logging
+      - acl
 
     
