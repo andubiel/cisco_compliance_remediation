@@ -20,10 +20,10 @@
   ios_config:
     defaults: yes
     lines: "{{ iosxeSTIG_stigrule_215807_session_limit_for_all_line_vty_sections_Lines }}"
-    parents: "{{ 215807_item }}"
+    parents: "{{ item_215807 }}"
   loop: "{{ cmd_result.stdout_lines|flatten(levels=1) }}"
   loop_control:
-    loop_var: 215807_item
+    loop_var: item_215807
   when:
     - iosxeSTIG_stigrule_215807_Manage
 
@@ -395,10 +395,10 @@
   ios_config:
     defaults: yes
     lines: "{{ iosxeSTIG_stigrule_215833_exec_timeout_for_all_line_vty_sections_Lines }}"
-    parents: "{{ 215833_item }}"
+    parents: "{{ item_215833}}"
   loop: "{{ cmd_result.stdout_lines|flatten(levels=1) }}"
   loop_control:
-    loop_var: 215833_item
+    loop_var: item_215833
   when:
     - iosxeSTIG_stigrule_215833_Manage
 
@@ -561,10 +561,10 @@
   ios_config:
     defaults: yes
     lines: "{{ iosxeSTIG_stigrule_215854_login_authentication_for_all_line_vty_sections_Lines }}"
-    parents: "{{ 215854_item }}"
+    parents: "{{ item_215854 }}"
   loop: "{{ cmd_result.stdout_lines|flatten(levels=1) }}"
   loop_control:
-    loop_var: 215854_item
+    loop_var: item_215854
   when:
     - iosxeSTIG_stigrule_215854_Manage
 
