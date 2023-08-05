@@ -174,7 +174,7 @@ iosxeSTIG_stigrule_215837_logging_trap_critical_Lines:
   - logging trap critical
 # R-215838 CISC-ND-001030
 # Replace ntp servers' IP address before enabling.
-iosxeSTIG_stigrule_215838_Manage: True
+iosxeSTIG_stigrule_215838_Manage: False
 iosxeSTIG_stigrule_215838_ntp_server_1_Server: '192.0.2.0'
 iosxeSTIG_stigrule_215838_ntp_server_2_Server: '192.0.2.1'
 # R-215839 CISC-ND-001040
