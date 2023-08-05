@@ -1,6 +1,6 @@
 ---
 - name: Compliance Check for Router settings
-  hosts: "{{ group }}"
+  hosts: "{{ _group }}"
   gather_facts: false
 
   tasks:
