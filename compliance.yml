@@ -3,7 +3,7 @@
   hosts: "{{ _group }}"
   gather_facts: false
   vars:
-    ignore_all_errors: true
+    ignore_all_errors: false
 
   tasks:
     - name: Run Compliance Roles
