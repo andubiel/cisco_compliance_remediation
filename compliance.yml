@@ -2,6 +2,8 @@
 - name: Compliance Check for Router settings
   hosts: "{{ _group }}"
   gather_facts: false
+  vars:
+    ignore_all_errors: true
 
   tasks:
     - name: Run Compliance Roles
