@@ -4,7 +4,6 @@
     config: "{{ logging_iosxr }}"   
     state: replaced
   register: logging_diff
-  tags: logging
 
 - ansible.builtin.debug:
     msg:
@@ -12,4 +11,3 @@
     - "{{ logging_diff.before }}"
     - "replace commands (remediation)"
     - "{{ logging_diff.commands | default ('no diff found') }}"
-  tags: logging

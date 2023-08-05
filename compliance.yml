@@ -2,15 +2,11 @@
 - name: Compliance Check for Router settings
   hosts: "{{ group }}"
   gather_facts: false
-  
-  tasks:
 
+  tasks:
     - name: Run Compliance Roles
-      ansible.builtin.include_role: 
+      ansible.builtin.include_role:
         name: "roles/{{ role_item }}"
       loop: "{{ tag }}"
       loop_control:
         loop_var: role_item
-      
-
-    

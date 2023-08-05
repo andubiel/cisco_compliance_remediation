@@ -1,59 +1,10 @@
-# Check ntp servers' IP address before replacing
-- name: Check/Replace existing NTP for compliance
-  cisco.ios.ios_ntp_global:
-    config: "{{ ntp_ios }}"
-    state: replaced
-  #check_mode: "{{ check }}"
-  register: ntp_diff
-  tags: ntp
-
-- ansible.builtin.debug:
-    msg:
-    - "current ntp config"
-    - "{{ ntp_diff.before }}"
-    - "replace commands (remediation)"
-    - "{{ ntp_diff.commands | default ('no diff found') }}"
-  tags: ntp
-
-- name: Check/Apply SNMPv3 Authentication/Encryption Configuration
-  cisco.ios.ios_snmp_server:
-      config: "{{ snmp_ios }}"
-      state: replaced
-  #check_mode: "{{ check }}"
-  register: snmp_diff
-  tags: snmp
-
-- ansible.builtin.debug:
-    msg:
-    - "current snmp config"
-    - "{{ snmp_diff.before }}"
-    - "replace commands (remediation)"
-    - "{{ snmp_diff.commands | default ('no diff found') }}"
-  tags: snmp
-
-- name: Check/Apply IOSXE logging configuration
-  cisco.ios.ios_logging_global:
-    config: "{{ logging_ios }}"   
-    state: replaced
-  #check_mode: "{{ check }}"
-  register: logging_diff
-  tags: logging
-
-- ansible.builtin.debug:
-    msg:
-    - "current logging config"
-    - "{{ logging_diff.before }}"
-    - "replace commands (remediation)"
-    - "{{ logging_diff.commands | default ('no diff found') }}"
-  tags: logging
-
+---
 - name: Check/Apply IOSXE ACLs 
   cisco.ios.ios_acls:
     config: "{{ acls }}"   
     state: replaced
   #check_mode: "{{ check }}"
   register: acls_diff
-  tags: acl
 
 - ansible.builtin.debug:
     msg:
@@ -61,7 +12,6 @@
     - "{{ acls_diff.before }}"
     - "replace commands (remediation)"
     - "{{ acls_diff.commands | default ('no diff found') }}"
-  tags: acl
 
 - name: Check/Apply IOSXE ACLs Iterfaces
   cisco.ios.ios_acl_interfaces:
@@ -69,7 +19,6 @@
     state: replaced
   #check_mode: "{{ check }}"
   register: acls_int_diff
-  tags: acl
 
 - ansible.builtin.debug:
     msg:
@@ -77,4 +26,3 @@
     - "{{ acls_int_diff.before }}"
     - "replace commands (remediation)"
     - "{{ acls_int_diff.commands | default ('no diff found') }}"
-  tags: acl

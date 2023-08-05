@@ -4,7 +4,6 @@
     config: "{{ ntp_iosxr }}"
     state: replaced
   register: diff
-  tags: ntp
 
 - ansible.builtin.debug:
     msg:
@@ -12,5 +11,4 @@
     - "{{ diff.before }}"
     - "replace commands (remediation)"
     - "{{ diff.commands | default ('no diff found') }}"
-  tags: ntp
        
