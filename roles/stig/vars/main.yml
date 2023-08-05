@@ -50,12 +50,12 @@ iosxeSTIG_stigrule_215815_logging_enable_Parents:
   - archive
   - log config
 # R-215816 CISC-ND-000250
-iosxeSTIG_stigrule_215816_Manage: False
+iosxeSTIG_stigrule_215816_Manage: True
 iosxeSTIG_stigrule_215816_login_logging_Lines:
   - login on-failure log
   - login on-success log
 # R-215817 CISC-ND-000280
-iosxeSTIG_stigrule_215817_Manage: False
+iosxeSTIG_stigrule_215817_Manage: True
 iosxeSTIG_stigrule_215817_service_timestamps_log_datetime_localtime_Lines:
   - service timestamps log datetime localtime
 # R-215819 CISC-ND-000330
