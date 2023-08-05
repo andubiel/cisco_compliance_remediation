@@ -1,2 +1,8 @@
 ---
 # handlers file for compliance
+- name: save configuration
+  when: 
+  - check != 'yes'
+  - save == 'yes'
+  ios_command:
+    commands: write memory
