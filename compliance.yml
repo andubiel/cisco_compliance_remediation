@@ -36,5 +36,5 @@
       ansible.builtin.debug:
         msg:
           - "SNMP compliance violation on {{ inventory_hostname }}"
-          - "Violations are remediated in Run-mode only"
+          - "Violations are remediated in Run-mode only {{ tower_job_type }}"
     
