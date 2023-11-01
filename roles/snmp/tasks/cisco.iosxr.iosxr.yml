@@ -4,6 +4,7 @@
       config: "{{ snmp_iosxr }}"
       state: replaced
   register: snmp_diff
+  notify: SNMP compliance violation
 
 - name: Apply snmp auth/encryption passwords
   cisco.iosxr.iosxr_config:

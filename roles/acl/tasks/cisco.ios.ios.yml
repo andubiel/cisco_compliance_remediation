@@ -19,6 +19,7 @@
     state: replaced
   #check_mode: "{{ check }}"
   register: acls_int_diff
+  notify: ACL compliance violation
 
 - ansible.builtin.debug:
     msg:

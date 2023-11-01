@@ -4,6 +4,7 @@
     config: "{{ ntp_nxos }}"
     state: replaced
   register: diff
+  notify: NTP compliance violation
 
 - ansible.builtin.debug:
     msg:

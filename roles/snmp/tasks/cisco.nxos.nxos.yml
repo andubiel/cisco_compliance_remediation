@@ -4,6 +4,7 @@
       config: "{{ snmp_nxos }}"
       state: replaced
   register: snmp_diff
+  notify: SNMP compliance violation
 
 - ansible.builtin.debug:
     msg:

@@ -18,13 +18,24 @@
       ansible.builtin.debug:
         msg:
           - "NTP config compliance violation on {{ inventory_hostname }}"
+          - "Violations are remediated in Run-mode only"
 
-    - name: NTP ACL compliance violation
+    - name: ACL compliance violation
       ansible.builtin.debug:
         msg:
-          - "NTP ACL compliance violation on {{ inventory_hostname }}"
+          - "ACL compliance violation on {{ inventory_hostname }}"
+          - "Violations are remediated in Run-mode only"
 
-    - name: Best-practice CLI compliance violation
+    - name: Logging compliance violation
       ansible.builtin.debug:
         msg:
-          - "Best practice global CLI compliance violation on {{ inventory_hostname }}"
+          - "Logging compliance violation on {{ inventory_hostname }}"
+          - "Violations are remediated in Run-mode only"
+  
+    - name: SNMP compliance violation
+      ansible.builtin.debug:
+        msg:
+          - "SNMP compliance violation on {{ inventory_hostname }}"
+          - "Violations are remediated in Run-mode only"
+    
+    
