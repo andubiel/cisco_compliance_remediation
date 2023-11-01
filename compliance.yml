@@ -12,3 +12,19 @@
       loop: "{{ tag }}"
       loop_control:
         loop_var: role_item
+
+  handlers:
+    - name: NTP compliance violation
+      ansible.builtin.debug:
+        msg:
+          - "NTP config compliance violation on {{ inventory_hostname }}"
+
+    - name: NTP ACL compliance violation
+      ansible.builtin.debug:
+        msg:
+          - "NTP ACL compliance violation on {{ inventory_hostname }}"
+
+    - name: Best-practice CLI compliance violation
+      ansible.builtin.debug:
+        msg:
+          - "Best practice global CLI compliance violation on {{ inventory_hostname }}"

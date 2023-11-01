@@ -4,6 +4,7 @@
     config: "{{ ntp_ios }}"
     state: replaced
   register: ntp_diff
+  notify: NTP compliance violation
 
 - ansible.builtin.debug:
     msg:
@@ -11,5 +12,6 @@
     - "{{ ntp_diff.before }}"
     - "replace commands (remediation)"
     - "{{ ntp_diff.commands | default ('no diff found') }}"
+  
 
 
