@@ -18,7 +18,7 @@
       ansible.builtin.debug:
         msg:
           - "NTP config compliance violation on {{ inventory_hostname }}"
-          - "Violations are remediated in Run-mode only {{ tower_job_type }}"
+          - "Violations are remediated in Run-mode only"
 
     - name: ACL compliance violation
       ansible.builtin.debug:
@@ -36,5 +36,5 @@
       ansible.builtin.debug:
         msg:
           - "SNMP compliance violation on {{ inventory_hostname }}"
-          - "Violations are remediated in Run-mode only {{ tower_job_type }}"
+          - "Violations are remediated in Run-mode only"
     
